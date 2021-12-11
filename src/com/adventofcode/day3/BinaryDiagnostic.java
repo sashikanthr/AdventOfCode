@@ -15,7 +15,7 @@ public class BinaryDiagnostic {
     private int currentBitIndex;
 
     BinaryDiagnostic() {
-        this(0,-1);
+        this(0, -1);
     }
 
     BinaryDiagnostic(int initializeCounter, int currentBitIndex) {
@@ -26,8 +26,8 @@ public class BinaryDiagnostic {
     public void processBitString(String nextLine) {
         bitStrings.add(nextLine);
         char[] bitArray = nextLine.toCharArray();
-        for(int i=0;i<bitCounter.length;i++) {
-            if(bitArray[i]=='1') {
+        for (int i = 0; i < bitCounter.length; i++) {
+            if (bitArray[i] == '1') {
                 bitCounter[i]++;
             }
         }
@@ -37,8 +37,8 @@ public class BinaryDiagnostic {
 
         StringBuilder builder = new StringBuilder();
         int totalNumberOfRecords = bitStrings.size();
-        for(int i:bitCounter) {
-            if((totalNumberOfRecords-i)<(totalNumberOfRecords/2.0)) {
+        for (int i : bitCounter) {
+            if ((totalNumberOfRecords - i) < (totalNumberOfRecords / 2.0)) {
                 builder.append("1");
             } else {
                 builder.append("0");
@@ -52,8 +52,8 @@ public class BinaryDiagnostic {
 
         StringBuilder builder = new StringBuilder();
         int totalNumberOfRecords = bitStrings.size();
-        for(int i:bitCounter) {
-            if((totalNumberOfRecords-i)>(totalNumberOfRecords/2.0)) {
+        for (int i : bitCounter) {
+            if ((totalNumberOfRecords - i) > (totalNumberOfRecords / 2.0)) {
                 builder.append("1");
             } else {
                 builder.append("0");
@@ -73,10 +73,10 @@ public class BinaryDiagnostic {
         String nextLine = reader.readLine();
         bitCounter = new int[nextLine.length()];
         currentBitIndex = -1;
-        do{
+        do {
             processBitString(nextLine);
             nextLine = reader.readLine();
-        } while(nextLine!=null);
+        } while (nextLine != null);
     }
 
     public int getBitLength() {
@@ -92,7 +92,7 @@ public class BinaryDiagnostic {
     }
 
     public char getNextLeastSignificantBit() {
-        if(bitStrings.size()-bitCounter[++currentBitIndex] > bitStrings.size()/2.0) {
+        if (bitStrings.size() - bitCounter[++currentBitIndex] > bitStrings.size() / 2.0) {
             return '1';
         } else {
             return '0';

@@ -11,16 +11,25 @@ public class SubmarineDive {
         SubmarineDive.SubmarineState state = new SubmarineState();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String nextLine;
-        while((nextLine = reader.readLine())!=null) {
+        while ((nextLine = reader.readLine()) != null) {
             String[] instruction = nextLine.split(" ");
-            switch(instruction[0]) {
-                case "forward": {state.forward(Integer.parseInt(instruction[1])); break;}
-                case "down": {state.down(Integer.parseInt(instruction[1])); break;}
-                case "up": {state.up(Integer.parseInt(instruction[1])); break;}
+            switch (instruction[0]) {
+                case "forward": {
+                    state.forward(Integer.parseInt(instruction[1]));
+                    break;
+                }
+                case "down": {
+                    state.down(Integer.parseInt(instruction[1]));
+                    break;
+                }
+                case "up": {
+                    state.up(Integer.parseInt(instruction[1]));
+                    break;
+                }
             }
         }
 
-        System.out.println("Multiplication of horizontal position and depth:"+state.calculate());
+        System.out.println("Multiplication of horizontal position and depth:" + state.calculate());
     }
 
 
@@ -34,20 +43,20 @@ public class SubmarineDive {
 
 
         void forward(int x) {
-            horizontalPosition+=x;
-            depth+=(aim*x);
+            horizontalPosition += x;
+            depth += (aim * x);
         }
 
-        void down(int x){
-            aim+=x;
+        void down(int x) {
+            aim += x;
         }
 
         void up(int x) {
-            aim-=x;
+            aim -= x;
         }
 
         int calculate() {
-            return horizontalPosition*depth;
+            return horizontalPosition * depth;
         }
     }
 }

@@ -14,19 +14,19 @@ public class SonarSweepSlidingWindow {
         int tempMeasureWindow1 = in.nextInt();
         while (in.hasNextInt()) {
             int current = in.nextInt();
-            tempMeasureWindow1+=current;
+            tempMeasureWindow1 += current;
             windowCounter1++;
             //Overlap of 3 elements when the windows are sliding
-            if(windowCounter1==3) {
+            if (windowCounter1 == 3) {
                 measureWindow1 = tempMeasureWindow1;
                 tempMeasureWindow1 = current;
                 windowCounter1 = 1;
             }
-            measureWindow2+=current;
+            measureWindow2 += current;
             windowCounter2++;
 
-            if(windowCounter2 == 3) {
-                if(measureWindow2 > measureWindow1) {
+            if (windowCounter2 == 3) {
+                if (measureWindow2 > measureWindow1) {
                     incrementCounter++;
                 }
                 //Overlap of 3 elements when the windows are sliding
@@ -39,6 +39,6 @@ public class SonarSweepSlidingWindow {
             }
         }
 
-        System.out.println("Number of increments >>>"+incrementCounter);
+        System.out.println("Number of increments >>>" + incrementCounter);
     }
 }

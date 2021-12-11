@@ -13,10 +13,10 @@ public class PowerConsumption {
     public void calculatePowerConsumption() throws IOException {
         BinaryDiagnostic diagnostic = new BinaryDiagnostic();
         diagnostic.initialize();
-        int gammaValue = Integer.parseInt(diagnostic.getMostSignificant(),2);
-        int epsilonValue = Integer.parseInt(diagnostic.getLeastSignificant(),2);
+        int gammaValue = Integer.parseInt(diagnostic.getMostSignificant(), 2);
+        int epsilonValue = Integer.parseInt(diagnostic.getLeastSignificant(), 2);
 
-        System.out.println("Power Consumption >> "+gammaValue*epsilonValue);
+        System.out.println("Power Consumption >> " + gammaValue * epsilonValue);
 
     }
 

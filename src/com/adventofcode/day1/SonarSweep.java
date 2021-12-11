@@ -8,14 +8,14 @@ public class SonarSweep {
         Scanner in = new Scanner(System.in);
         int incrementCounter = 0;
         int lastInt = in.nextInt();
-        while(in.hasNextInt()) {
+        while (in.hasNextInt()) {
             int nextInt = in.nextInt();
-            if(nextInt > lastInt) {
+            if (nextInt > lastInt) {
                 incrementCounter++;
             }
             lastInt = nextInt;
         }
 
-        System.out.println("Number of increments >>>"+incrementCounter);
+        System.out.println("Number of increments >>>" + incrementCounter);
     }
 }
