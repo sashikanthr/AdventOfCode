@@ -19,11 +19,12 @@ public class GiantSquid {
 
     private int firstWinningIndex = -1;
 
-    //Below variables were introduced for Part - 2 of the problem. The tracker helps to find out who finished last
+    private List<Bingo> state;
+
+    //Below variable was introduced for Part - 2 of the problem. The tracker helps to find out who finished last
 
     private int lastWinningIndex = -1;
 
-    private List<Bingo> state;
 
     public static void main(String[] args) throws IOException {
         GiantSquid squid = new GiantSquid();
