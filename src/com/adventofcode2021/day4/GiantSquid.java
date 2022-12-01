@@ -1,4 +1,4 @@
-package com.adventofcode.day4;
+package com.adventofcode2021.day4;
 
 import java.io.BufferedReader;
 import java.io.IOException;

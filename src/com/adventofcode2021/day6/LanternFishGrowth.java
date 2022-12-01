@@ -1,4 +1,4 @@
-package com.adventofcode.day6;
+package com.adventofcode2021.day6;
 
 /*
     Understood what the actual intention of the problem is. It is not to maintain the actual state of the growth but

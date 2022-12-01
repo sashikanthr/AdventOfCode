@@ -1,4 +1,4 @@
-package com.adventofcode.day1;
+package com.adventofcode2021.day1;
 
 import java.util.Scanner;
 

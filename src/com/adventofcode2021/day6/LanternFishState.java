@@ -1,4 +1,4 @@
-package com.adventofcode.day6;
+package com.adventofcode2021.day6;
 
 
 import java.io.BufferedReader;

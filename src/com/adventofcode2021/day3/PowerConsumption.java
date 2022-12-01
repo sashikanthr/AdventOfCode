@@ -1,4 +1,4 @@
-package com.adventofcode.day3;
+package com.adventofcode2021.day3;
 
 
 import java.io.IOException;
