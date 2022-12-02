@@ -1,7 +1,23 @@
 package com.adventofcode2022.day2
 
 enum class GAME {
-    ROCK, PAPER, SCISSORS
+    ROCK {
+        override fun win() = PAPER
+        override fun lose() = SCISSORS
+        override fun score() = 1
+    }, PAPER {
+        override fun win() = SCISSORS
+        override fun lose() = ROCK
+        override fun score() = 2
+    }, SCISSORS {
+        override fun win() = ROCK
+        override fun lose() = PAPER
+        override fun score() = 3
+    };
+
+    abstract fun win(): GAME
+    abstract fun lose(): GAME
+    abstract fun score(): Int
 }
 
 enum class OPPONENT {
@@ -42,51 +58,27 @@ fun getSelfGame(value: SELF): GAME {
     }
 }
 
-fun getWinMove(value: GAME): GAME {
-    return when (value) {
-        GAME.ROCK -> GAME.PAPER
-        GAME.PAPER -> GAME.SCISSORS
-        GAME.SCISSORS -> GAME.ROCK
-    }
-}
-
-fun getLoseMove(value: GAME): GAME {
-    return when (value) {
-        GAME.ROCK -> GAME.SCISSORS
-        GAME.PAPER -> GAME.ROCK
-        GAME.SCISSORS -> GAME.PAPER
-    }
-}
-
-fun getShapeScore(value: GAME): Int {
-    return when (value) {
-        GAME.ROCK -> 1
-        GAME.PAPER -> 2
-        GAME.SCISSORS -> 3
-    }
-}
-
 fun play(opp: OPPONENT, self: SELF): Int {
     val oppMove = getOpponentGame(opp)
     val selfMove = getSelfGame(self)
     return when (oppMove) {
         selfMove -> 3
         else -> {
-            when (getWinMove(oppMove)) {
+            when (oppMove.win()) {
                 selfMove -> 6
                 else -> 0
             }
         }
-    } + getShapeScore(selfMove)
+    } + selfMove.score()
 }
 
 //Part 2 of the problem
 fun playII(opp: OPPONENT, self: SELF): Int {
     val oppMove = getOpponentGame(opp)
     return when (self) {
-        SELF.X -> getShapeScore(getLoseMove(oppMove))
-        SELF.Y -> return 3 + getShapeScore(oppMove)
-        SELF.Z -> return 6 + getShapeScore(getWinMove(oppMove))
+        SELF.X -> (oppMove.lose()).score()
+        SELF.Y -> return 3 + (oppMove).score()
+        SELF.Z -> return 6 + (oppMove.win()).score()
     }
 }
 
