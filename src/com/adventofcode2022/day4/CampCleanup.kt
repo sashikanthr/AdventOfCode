@@ -2,19 +2,24 @@ package com.adventofcode2022.day4
 
 fun main() {
     var line = readLine()
-    var counter = 0
+    var counterII = 0
+    var counterI = 0
     while (line != null) {
         val pairs = line.split(",")
         val pair1 = pairs[0].split("-")
         val pair2 = pairs[1].split("-")
+        if (checkIfPairContainsAnother(pair1, pair2)) {
+            counterI++
+        }
         if (checkForOverlap(pair1, pair2)) {
-            counter++
+            counterII++
         }
         line = readLine()
     }
-    println("Number of pairs : $counter")
+    println("Number of pairs Part I: $counterI")
+    println("Number of pairs Part II : $counterII")
 }
-
+//Part I
 fun checkIfPairContainsAnother(pair1: List<String>, pair2: List<String>): Boolean {
     val sec1 = pair1[0].toInt()
     val sec2 = pair1[1].toInt()
