@@ -6,9 +6,7 @@ val crateMap = mutableMapOf<Int, Stack<Char>>()
 
 fun main() {
     getCurrentCrateAlignment()
-    println(crateMap)
     fireCommands()
-    println(crateMap)
     popTopmostBlock()
 }
 
